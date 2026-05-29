@@ -117,6 +117,8 @@ export interface EmissionRecord {
   is_locked: boolean;
   locked_at: string | null;
   locked_by_user_id: string | null;
+  billing_period_start?: string | null;
+  billing_period_end?: string | null;
   data_quality_flags: DataQualityFlag[];
   monthly_allocations?: MonthlyAllocation[];
 }
