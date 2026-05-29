@@ -3,6 +3,7 @@
  */
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 import { authService } from '../services/authService';
 import type { LoginPayload } from '../types';
 
@@ -31,10 +32,12 @@ export function useLogin() {
 
 export function useLogout() {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   return useMutation({
     mutationFn: () => authService.logout(),
     onSuccess: () => {
       queryClient.clear();
+      navigate('/login', { replace: true });
     },
   });
 }
