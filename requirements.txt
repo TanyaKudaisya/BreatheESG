@@ -1,0 +1,27 @@
+# Core Django
+Django==5.1.4
+djangorestframework==3.15.2
+
+# WSGI server
+gunicorn==23.0.0
+
+# Database
+psycopg2-binary==2.9.10
+
+# Environment variable management
+python-decouple==3.8
+
+# Static file serving
+whitenoise==6.8.2
+
+# CORS headers
+django-cors-headers==4.6.0
+
+# Filtering support for DRF
+django-filter==24.3
+
+# UUID support (built into Python, but useful extras)
+# Testing
+pytest==8.3.4
+pytest-django==4.9.0
+hypothesis==6.122.3

@@ -1,0 +1,21 @@
+{
+  "emission_factors": {
+    "diesel": 2.68,
+    "petrol": 2.31,
+    "png": 2.02,
+    "furnace_oil": 3.15,
+    "lpg": 1.51,
+    "coal": 2.42,
+    "electricity_kwh": 0.82
+  },
+  "unit_conversions": {
+    "L":   {"target_unit": "litres",        "factor": 1.0},
+    "LTR": {"target_unit": "litres",        "factor": 1.0},
+    "M3":  {"target_unit": "cubic_metres",  "factor": 1.0},
+    "KG":  {"target_unit": "kilograms",     "factor": 1.0}
+  },
+  "cabin_class_multipliers": {
+    "ECONOMY":  1.0,
+    "BUSINESS": 3.0
+  }
+}
