@@ -15,8 +15,15 @@ export const authService = {
 
   /** Log out and clear the stored token. */
   logout: async (): Promise<void> => {
-    await apiClient.post('/auth/logout/');
-    localStorage.removeItem('auth_token');
+    try {
+      await apiClient.post('/auth/logout/');
+    } catch (error) {
+      // Log the error but don't throw - we want to clear local state regardless
+      console.error('Logout API call failed:', error);
+    } finally {
+      // Always clear the token, even if the API call fails
+      localStorage.removeItem('auth_token');
+    }
   },
 
   /** Fetch the currently authenticated user's profile. */

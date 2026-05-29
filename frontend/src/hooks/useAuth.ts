@@ -34,9 +34,21 @@ export function useLogout() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   return useMutation({
-    mutationFn: () => authService.logout(),
+    mutationFn: async () => {
+      console.log('useLogout: Starting logout mutation');
+      await authService.logout();
+      console.log('useLogout: Logout service call completed');
+    },
     onSuccess: () => {
+      console.log('useLogout: onSuccess called, clearing cache and navigating');
       queryClient.clear();
+      navigate('/login', { replace: true });
+    },
+    onError: (error) => {
+      console.error('useLogout: Logout failed:', error);
+      // Even if the API call fails, clear local state and redirect
+      queryClient.clear();
+      localStorage.removeItem('auth_token');
       navigate('/login', { replace: true });
     },
   });

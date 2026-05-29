@@ -108,7 +108,10 @@ export default function DashboardLayout() {
               <Button
                 color="inherit"
                 size="small"
-                onClick={() => logout.mutate()}
+                onClick={() => {
+                  console.log('Logout button clicked');
+                  logout.mutate();
+                }}
               >
                 Logout
               </Button>
